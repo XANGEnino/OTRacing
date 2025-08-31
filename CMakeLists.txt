@@ -1,18 +1,15 @@
 cmake_minimum_required(VERSION 3.16)
-project(OTRacing)
+project(OTRacing VERSION 1.0.0)
 
-# Set C++ standard
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(OpenGL REQUIRED)
 
-# Add submodules
-add_subdirectory(external/glfw)
-add_subdirectory(external/glad)
+file(GLOB SOURCES
+    "src/*.cpp"
+    "src/*.c"
+)
 
-# Add source files
-add_executable(OTRacing src/main.cpp)
+add_executable(OTRacing ${SOURCES})
 
-# For include directories (later when adding libraries)
-# target_include_directories(OTRacing PRIVATE include)
-target_link_libraries(OTRacing PRIVATE glfw)
-target_link_libraries(OTRacing PRIVATE glad)
+target_include_directories(OTRacing PRIVATE include)
+target_link_libraries(OTRacing PRIVATE "C:/Dev/C++Libs/GLFW/glfw3.lib")
+target_link_libraries(OTRacing PRIVATE OpenGL::GL)

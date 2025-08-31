@@ -1,3 +1,4 @@
+#pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -8,7 +9,7 @@ int main() {
         return -1;
     }
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "OTRacing", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1600, 1200, "OTRacing", NULL, NULL);
     if (!window) {
         std::cerr << "Failed to create window!" << std::endl;
         glfwTerminate();
